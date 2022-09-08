@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1021049023743",
+    "project_id": "ais-attendance-app",
+    "storage_bucket": "ais-attendance-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021049023743:android:7a9a8f264b27139b44f0ca",
+        "android_client_info": {
+          "package_name": "com.ebenezer.gana.aisattendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021049023743-7un8l23p2kmijdajh2tjuguvbpbqi25v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ebenezer.gana.aisattendance",
+            "certificate_hash": "9b2b664fc76439a6e86b50337aaa3208404b0072"
+          }
+        },
+        {
+          "client_id": "1021049023743-13n5s51r946r1ab0d9n617j2d4ib2p2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfDn16RRTd7v7DedCp4NxfKewkD-De5yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021049023743-13n5s51r946r1ab0d9n617j2d4ib2p2q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

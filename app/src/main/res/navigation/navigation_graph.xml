@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.ebenezer.gana.aisattendance.ui.start.StartFragment"
+        android:label="Available Attendance"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_attendanceListFragment"
+            app:destination="@id/attendanceListFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_admin_nav_graph"
+            app:destination="@id/admin_nav_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/attendanceListFragment"
+        android:name="com.ebenezer.gana.aisattendance.ui.attendanceList.AttendanceListFragment"
+        android:label="AIS Attendance"
+        tools:layout="@layout/fragment_attendance_list" >
+        <argument
+            android:name="day"
+            app:argType="com.ebenezer.gana.aisattendance.data.models.Day" />
+        <action
+            android:id="@+id/action_attendanceListFragment_to_addNewAttendeeFragment"
+            app:destination="@id/addNewAttendeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewAttendeeFragment"
+        android:name="com.ebenezer.gana.aisattendance.ui.addNewAttendee.AddNewAttendeeFragment"
+        android:label="Submit Attendance"
+        tools:layout="@layout/fragment_add_new_attendee" >
+        <argument
+            android:name="attendanceId"
+            app:argType="string" />
+    </fragment>
+    <include app:graph="@navigation/admin_nav_graph" />
+</navigation>

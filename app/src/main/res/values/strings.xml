@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">AIS Attendance</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="attendee_name_req">Full Name</string>
+    <string name="submit_action">Submit</string>
+    <string name="title_name">Name</string>
+    <string name="time">Time</string>
+    <string name="take_attendance">Take Attendance</string>
+    <string name="admin">Admin</string>
+    <string name="success">Successful</string>
+    <string name="signed_management">Signed: Management</string>
+    <string name="add_attendance">Add Attendance</string>
+    <string name="add_dialog_message">Are you sure you want to add this attendance?</string>
+    <string name="cancel_dialog_message">Cancel</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="official_attendance_for">Official Attendance for</string>
+</resources>

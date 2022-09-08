@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Widget.AISAttendance.ListItemTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+    </style>
+
+    <style name="Widget.AISAttendance.Header" parent="Widget.MaterialComponents.TextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceOverline</item>
+    </style>
+
+    <style name="Widget.AISAttendance.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorIconTint">@color/red</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="errorIconDrawable">@android:drawable/stat_notify_error</item>
+        <item name="helperTextTextAppearance">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+    </style>
+
+    <!--<style name="Theme.Starting" parent="Theme.SplashScreen">
+        &lt;!&ndash; Set the splash screen background, animated icon, and animation duration. &ndash;&gt;
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        &lt;!&ndash; Use windowSplashScreenAnimatedIcon to add either a drawable or an
+             animated drawable. One of these is required. &ndash;&gt;
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_appreciation</item>
+        &lt;!&ndash; Required for animated icons &ndash;&gt;
+        <item name="windowSplashScreenAnimationDuration">5000</item>
+
+        &lt;!&ndash; Set the theme of the Activity that directly follows your splash screen. &ndash;&gt;
+        &lt;!&ndash; Required &ndash;&gt;
+        <item name="postSplashScreenTheme">@style/Theme.FCSIBBUL</item>
+    </style>-->
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/black</item>
+    </style>
+
+
+
+
+</resources>

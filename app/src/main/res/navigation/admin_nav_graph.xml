@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav_graph"
+    app:startDestination="@id/adminDashboardFragment">
+
+    <fragment
+        android:id="@+id/adminDashboardFragment"
+        android:name="com.ebenezer.gana.aisattendance.ui.admin.dashboard.AdminDashboardFragment"
+        android:label="Admin Dashboard"
+        tools:layout="@layout/fragment_admin_dashboard" >
+        <action
+            android:id="@+id/action_adminDashboardFragment_to_adminAttendanceDetailsFragment"
+            app:destination="@id/adminAttendanceDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAttendanceDetailsFragment"
+        android:name="com.ebenezer.gana.aisattendance.ui.admin.details.AdminAttendanceDetailsFragment"
+        android:label="Attendance Detail"
+        tools:layout="@layout/fragment_admin_attendance_details" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+</navigation>
