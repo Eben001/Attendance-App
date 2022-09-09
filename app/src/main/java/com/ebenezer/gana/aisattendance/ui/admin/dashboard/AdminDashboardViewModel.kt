@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ebenezer.gana.aisattendance.data.models.AdminAttendance
-import com.ebenezer.gana.aisattendance.data.models.Attendance
 import com.ebenezer.gana.aisattendance.data.models.Day
 import com.ebenezer.gana.aisattendance.data.repository.AdminRepository
 import com.ebenezer.gana.aisattendance.utils.UiText

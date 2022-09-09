@@ -1,15 +1,11 @@
 package com.ebenezer.gana.aisattendance.data.repository
 
-import android.util.Log
 import com.ebenezer.gana.aisattendance.R
-import com.ebenezer.gana.aisattendance.data.models.AdminAttendance
-import com.ebenezer.gana.aisattendance.data.models.Attendance
 import com.ebenezer.gana.aisattendance.data.models.Day
 import com.ebenezer.gana.aisattendance.utils.Constants
 import com.ebenezer.gana.aisattendance.utils.UiText
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.SetOptions
 import javax.inject.Inject
 
 private const val TAG = "AdminRepository"
