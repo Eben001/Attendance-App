@@ -62,19 +62,16 @@ class StartFragment : Fragment() {
         }
     }
 
+    private fun bind(day: Day) {
+        binding.date.text = day.day
+    }
+
     private fun setOnClickListeners(day: Day) {
         binding.cardAvailableAttendance.setOnClickListener {
             val action =
                 StartFragmentDirections.actionStartFragmentToAttendanceListFragment(day)
            this. findNavController().navigate(action)
         }
-
-
-    }
-
-
-    private fun bind(day: Day) {
-        binding.date.text = day.day
     }
 
     override fun onDestroy() {

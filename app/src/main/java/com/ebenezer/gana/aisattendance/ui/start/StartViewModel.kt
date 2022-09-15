@@ -15,6 +15,9 @@ class StartViewModel @Inject constructor(private val repository: StartScreenRepo
     private val _availableAttendance = MutableLiveData<Day>()
     val availableAttendance: LiveData<Day> = _availableAttendance
 
+    /**
+     * A function to get the latest attendance created by the admin
+     */
     fun getAvailableAttendance() {
         repository.getAvailableAttendance {
             _availableAttendance.value = it
