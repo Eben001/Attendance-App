@@ -24,8 +24,11 @@ class AdminDashboardViewModel @Inject constructor(private val repository: AdminR
     private var _todayAttendance = MutableLiveData<List<Day>>()
     val todayAttendance:LiveData<List<Day>> = _todayAttendance
 
-
-    fun getTodayAttendanceList(){
+    /**
+     * A function that will be called from AdminDashboardFragment to get the list
+     * of the overall days attendance
+     */
+    fun getAdminListOfAttendance(){
         viewModelScope.launch {
             repository.getListOfAttendances {
                 _todayAttendance.value = it
@@ -33,10 +36,18 @@ class AdminDashboardViewModel @Inject constructor(private val repository: AdminR
         }
     }
 
+    /**
+     * A public function that will be called from AdminDashboardFragment to create an new
+     * list of attendance ready to accepts data from the users
+     * @param day Today's date
+     */
     fun createAttendance(day:Day) {
         createNewAttendanceSheet(day)
     }
 
+    /**
+     * A private function to do the actual creation of the attendance list. The data is delegated to AdminRepository
+     */
     private fun createNewAttendanceSheet(newData: Day) {
         repository.createAttendance(newData,
             onSuccess = {
