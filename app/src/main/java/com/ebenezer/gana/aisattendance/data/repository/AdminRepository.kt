@@ -38,8 +38,8 @@ class AdminRepository @Inject constructor(private val firestore: FirebaseFiresto
     }
 
     fun getTodayAttendanceList(result: (List<Day>) -> Unit) {
-       firestore.collection("days")
-           .orderBy("timeStamp", Query.Direction.DESCENDING)
+       firestore.collection(Constants.DAYS)
+           .orderBy(Constants.TIMESTAMP, Query.Direction.DESCENDING)
            .get()
            .addOnSuccessListener {document ->
                val attendanceList = mutableListOf<Day>()

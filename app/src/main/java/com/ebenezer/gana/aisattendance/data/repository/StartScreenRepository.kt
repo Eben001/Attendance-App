@@ -10,7 +10,7 @@ class StartScreenRepository @Inject constructor(private val firestore: FirebaseF
 
     fun getAvailableAttendance(result:(Day) -> Unit){
         firestore.collection(Constants.DAYS)
-            .orderBy("timeStamp", Query.Direction.DESCENDING)
+            .orderBy(Constants.TIMESTAMP, Query.Direction.DESCENDING)
             .limit(1)
             .get()
             .addOnSuccessListener { document ->
