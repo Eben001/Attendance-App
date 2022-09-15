@@ -44,16 +44,22 @@ class AdminDashboardFragment : BaseFragment() {
                 day.id!!
             )
             findNavController().navigate(action)
-
         }
 
         binding.rvAttendance.adapter = adapter
         viewModel.todayAttendance.observe(viewLifecycleOwner) {
             adapter.submitList(it)
             binding.swipeRefresh.isRefreshing = false
-
         }
-
+    }
+    private fun observeViewModels() {
+        viewModel.result.observe(viewLifecycleOwner){
+            if (viewModel.isPostSuccess.value == true) {
+                showSnackBar(it.asString(requireContext()), isError = false)
+            } else {
+                showSnackBar(it.asString(requireContext()), isError = true)
+            }
+        }
     }
 
     private fun setOnClickListeners() {
@@ -66,18 +72,9 @@ class AdminDashboardFragment : BaseFragment() {
         }
     }
 
-    private fun observeViewModels() {
-        viewModel.result.observe(viewLifecycleOwner){
-            if (viewModel.isPostSuccess.value == true) {
-                showSnackBar(it.asString(requireContext()), isError = false)
-            } else {
-                showSnackBar(it.asString(requireContext()), isError = true)
-            }
-        }
-
-
-    }
-
+    /**
+     * A function to show a confirm dialog before attempting to create the attendance
+     */
     private fun showConfirmDialog() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(resources.getString(R.string.add_attendance))
@@ -94,6 +91,9 @@ class AdminDashboardFragment : BaseFragment() {
             .show()
     }
 
+    /**
+     * A function to create attendance for the day
+     */
     private fun createAttendance() {
         val dateFormat =
             SimpleDateFormat("dd MMM yyyy", Locale.getDefault()) // e.g  1 Oct 2022
