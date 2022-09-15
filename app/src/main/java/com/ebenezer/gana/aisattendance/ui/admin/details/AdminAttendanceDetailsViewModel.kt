@@ -15,7 +15,10 @@ class AdminAttendanceDetailsViewModel @Inject constructor(private val repository
     private val _attendanceList = MutableLiveData<List<Attendance>>()
     val attendanceList: LiveData<List<Attendance>> = _attendanceList
 
-
+    /**
+     * Gets a list of attendance detail
+     * @param id the Id of the attendance to get
+     */
     fun getAttendanceList(id: String) {
         repository.getAttendanceList(id) {
             _attendanceList.value = it

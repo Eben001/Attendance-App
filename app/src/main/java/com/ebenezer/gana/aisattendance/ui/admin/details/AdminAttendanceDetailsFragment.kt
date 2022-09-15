@@ -37,7 +37,6 @@ class AdminAttendanceDetailsFragment : Fragment() {
 
         val id = navigationArgs.id
         viewModel.getAttendanceList(id)
-
         binding.rvAttendance.layoutManager = LinearLayoutManager(this.context)
 
         //Let's reuse AttendanceListAdapter
@@ -46,7 +45,6 @@ class AdminAttendanceDetailsFragment : Fragment() {
         viewModel.attendanceList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-
 
     }
 
