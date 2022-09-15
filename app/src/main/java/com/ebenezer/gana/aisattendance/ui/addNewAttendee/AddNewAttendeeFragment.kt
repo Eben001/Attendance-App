@@ -7,16 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ebenezer.gana.aisattendance.databinding.FragmentAddNewAttendeeBinding
 import com.ebenezer.gana.aisattendance.ui.baseFragment.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,7 +20,7 @@ class AddNewAttendeeFragment : BaseFragment() {
     private var _binding: FragmentAddNewAttendeeBinding? = null
     private val binding get() = _binding!!
 
-    private val navigationArgs:AddNewAttendeeFragmentArgs by navArgs()
+    private val navigationArgs: AddNewAttendeeFragmentArgs by navArgs()
 
     private val viewModel: AddNewAttendeeViewModel by viewModels()
     override fun onCreateView(
@@ -40,19 +35,8 @@ class AddNewAttendeeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val currentAttendanceId = navigationArgs.attendanceId
-
         observeViewModels()
         setOnClickListeners(currentAttendanceId)
-    }
-
-    private fun setOnClickListeners(id:String) {
-        binding.submitAction.setOnClickListener {
-            if (isValidDetails()) {
-                submitAttendance(id)
-                clearTextEntries()
-                hideKeyboard()
-            }
-        }
     }
 
     private fun observeViewModels() {
@@ -63,10 +47,36 @@ class AddNewAttendeeFragment : BaseFragment() {
                 showSnackBar(it.asString(requireContext()), isError = true)
             }
         }
-
     }
 
-    private fun submitAttendance(currentAttendanceId:String) {
+    private fun setOnClickListeners(id: String) {
+        binding.submitAction.setOnClickListener {
+            if (isValidDetails()) {
+                submitAttendance(id)
+                clearTextEntries()
+                hideKeyboard()
+            }
+        }
+    }
+
+    private fun isValidDetails(): Boolean {
+        return when {
+            binding.attendeeName
+                .text.toString().trim().isEmpty() -> {
+                Toast.makeText(requireContext(), "Please Enter your name", Toast.LENGTH_SHORT)
+                    .show()
+                false
+            }
+            else -> true
+        }
+    }
+
+    /**
+     * A function to submit the attendance details as obtained from the user
+     * @param currentAttendanceId the Id of the current attendance to submit to
+     */
+    private fun submitAttendance(currentAttendanceId: String) {
+        //FIXME: The user might be able to change the time from their device. We want to prevent this in reality
         val dateFormat =
             SimpleDateFormat("h:mm a", Locale.getDefault()) // e.g  9:43AM
         val currentDateAndTime: String = dateFormat.format(Calendar.getInstance().timeInMillis)
@@ -83,32 +93,15 @@ class AddNewAttendeeFragment : BaseFragment() {
         binding.attendeeName.text?.clear()
     }
 
-    private fun isValidDetails(): Boolean {
-        return when {
-            binding.attendeeName
-                .text.toString().trim().isEmpty() -> {
-                Toast.makeText(requireContext(), "Please Enter your name", Toast.LENGTH_SHORT)
-                    .show()
-                false
-            }
-
-            else -> true
-        }
-
-    }
-
     private fun hideKeyboard() {
         val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as
                 InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
         hideKeyboard()
         _binding = null
     }
-
-
 }
