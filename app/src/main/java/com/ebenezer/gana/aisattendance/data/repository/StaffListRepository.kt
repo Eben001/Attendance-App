@@ -15,33 +15,6 @@ private const val TAG = "StaffListRepository"
 
 class StaffListRepository @Inject constructor(private val firestore: FirebaseFirestore) {
 
-/*
-    fun getAttendanceList(result: (List<Attendance>) -> Unit) {
-        firestore.collection(Constants.ATTENDANCE)
-            .orderBy("timeStamp", Query.Direction.DESCENDING)
-            .get()
-            .addOnSuccessListener { document ->
-                val attendanceList = mutableListOf<Attendance>()
-                val documents = document.documents
-
-                documents.forEach {
-                    // we want to get the id of each document
-                    val attendance = it.toObject(Attendance::class.java)
-                    if (attendance != null) {
-                        attendance.id = it.id
-                        attendanceList.add(attendance)
-                    }
-                }
-                result(attendanceList)
-
-            }
-            .addOnFailureListener {
-                Log.d(TAG, "getAttendanceList: ${it.localizedMessage}")
-            }
-
-    }
-*/
-
     fun getAttendanceList(id: String, result: (List<Attendance>) -> Unit) {
 
         firestore.collection(Constants.DAYS)

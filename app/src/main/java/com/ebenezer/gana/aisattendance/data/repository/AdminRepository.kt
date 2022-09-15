@@ -7,8 +7,6 @@ import com.ebenezer.gana.aisattendance.utils.UiText
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import javax.inject.Inject
-
-private const val TAG = "AdminRepository"
 class AdminRepository @Inject constructor(private val firestore: FirebaseFirestore) {
 
     fun createAttendance(
@@ -22,7 +20,7 @@ class AdminRepository @Inject constructor(private val firestore: FirebaseFiresto
         firestore.runTransaction { transaction ->
             val documentRef = firestore.collection(Constants.DAYS).document()
             transaction[documentRef] = newSheet
-            null
+
 
             firestore.collection(Constants.ATTENDANCE)
                 .document()
@@ -37,22 +35,6 @@ class AdminRepository @Inject constructor(private val firestore: FirebaseFiresto
 
             }
 
-
-    /*    firestore.collection(Constants.DAYS)
-            .document()
-            .set(newSheet, SetOptions.merge())
-*/
-        /*    .collection(Constants.ATTENDANCE)
-            .document()
-            .addOnSuccessListener {
-                onSuccess(UiText.StringResource(R.string.success))
-
-            }
-
-            .addOnFailureListener {
-                onFailure(UiText.DynamicString(it.message!!))
-
-            }*/
     }
 
     fun getTodayAttendanceList(result: (List<Day>) -> Unit) {
