@@ -18,6 +18,14 @@ class AddNewAttendeeViewModel @Inject constructor(private val repository: StaffL
     private var _isPostSuccess = MutableLiveData<Boolean>()
     val isPostSuccess:LiveData<Boolean> = _isPostSuccess
 
+    /**
+     * A helper function that will be called from AddNewAttendeeFragment to prepare the list
+     * to be submitted
+     * @param id id of the current user
+     * @param userId
+     * @param name name of the attendee
+     * @param time time the attendance was submitted
+     */
     fun submitAttendance(
         id: String,
         userId: String,
@@ -25,12 +33,13 @@ class AddNewAttendeeViewModel @Inject constructor(private val repository: StaffL
         time: String,
     ) {
         val newData = Attendance(id, userId, name, time)
-
         submitNewAttendance(newData)
-
-
     }
 
+    /**
+     * A function to submit the actual attendee data
+     * @param newData the attendance model for each attendee
+     */
     private fun submitNewAttendance(newData: Attendance) {
         repository.addNewAttendee(newData,
             onSuccess = {
