@@ -17,6 +17,10 @@ class AttendanceListViewModel @Inject constructor(private val repository: StaffL
     private val _attendanceList = MutableLiveData<List<Attendance>>()
     val attendanceList:LiveData<List<Attendance>> = _attendanceList
 
+    /**
+     * A function to return the list of a specific day's attendance
+     * @param id Id of the particular day
+     */
     fun getAttendanceList(id:String){
         viewModelScope.launch {
             repository.getAttendanceList(id) {
