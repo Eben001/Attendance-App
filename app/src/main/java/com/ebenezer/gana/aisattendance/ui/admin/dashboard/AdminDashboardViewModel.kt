@@ -27,7 +27,7 @@ class AdminDashboardViewModel @Inject constructor(private val repository: AdminR
 
     fun getTodayAttendanceList(){
         viewModelScope.launch {
-            repository.getTodayAttendanceList {
+            repository.getListOfAttendances {
                 _todayAttendance.value = it
             }
         }

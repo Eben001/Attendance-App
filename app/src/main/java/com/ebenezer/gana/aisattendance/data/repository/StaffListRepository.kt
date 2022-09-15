@@ -12,6 +12,11 @@ import javax.inject.Inject
 
 class StaffListRepository @Inject constructor(private val firestore: FirebaseFirestore) {
 
+    /**
+     * Gets the specific day's attendance from firestore
+     * @param id the Id of the document to get from the 'days' collection
+     * @param result used to return a list of the attendance with the passed id
+     */
     fun getAttendanceList(id: String, result: (List<Attendance>) -> Unit) {
         firestore.collection(Constants.DAYS)
             .document(id)
@@ -38,7 +43,12 @@ class StaffListRepository @Inject constructor(private val firestore: FirebaseFir
             }
     }
 
-
+    /**
+     * Adds a new attendee to the attendance collection for each day.
+     * @param newAttendance an objects that represents a single attendee to be recorded
+     * @param onSuccess receives a success message
+     * @param onFailure receives a failure message
+     */
     fun addNewAttendee(
         newAttendance: Attendance, onSuccess: (UiText) -> Unit,
         onFailure: (UiText) -> Unit
