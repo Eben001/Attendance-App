@@ -16,8 +16,7 @@ Attendance App
 
 
 ## General Information
-- It's regrettable in our today's world(driven by Technology) that many organizations like schools, and companies especially in West African countries. 
-They still use the manual way of taking daily attendance: The secretary creates a blank paper sheet where every staff needs to start writing their names and the time they arrive.
+- It's regrettable in our today's world(driven by Technology) that many organizations like schools, and companies especially in West African countries still uses the manual way of taking daily attendance: The secretary creates a blank paper sheet where every staff needs to start writing their names and the time they arrive.
 This method is very cumbersome, time-wasting and not efficient for any further evaluation. 
 - The purpose of this project is to transform the old/manual way of taking attendance into a digital one with a more elegant and efficient features  
 
