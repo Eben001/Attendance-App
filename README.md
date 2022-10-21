@@ -1,10 +1,7 @@
 # Attendance-App
 Attendance App
 > An attendance taking app. It is similar to the traditional and old way of taking attendance by making blank sheets transformed into an android app with a more elegant features
-
-> Live video demo of the current state of the project [_here_](https://user-images.githubusercontent.com/54691862/197161750-1a063106-b38d-4322-be8a-0cc22bf38f65.mp4
-).
-
+> Live video demo of the current state of the project [_here_](https://drive.google.com/file/d/1uPv41X4fWj32oJNknEnwZGGZzcITBt7M/view?usp=sharing)
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
